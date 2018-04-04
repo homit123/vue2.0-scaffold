@@ -1,5 +1,5 @@
 {
-  "name": "wei-cli",
+  "name": "weiwei-cli",
   "version": "1.0.0",
   "description": "vue2.0 web project code scaffold",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "bin": {
     "wei": "index.js"
   },
+  "git repository":"https://github.com/davych/vue2.0-scaffold.git",
   "author": "davy",
   "license": "ISC",
   "dependencies": {
