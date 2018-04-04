@@ -9,7 +9,10 @@
   "bin": {
     "wei": "index.js"
   },
-  "git repository":"https://github.com/davych/vue2.0-scaffold.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davych/vue2.0-scaffold.git"
+  },
   "author": "davy",
   "license": "ISC",
   "dependencies": {
