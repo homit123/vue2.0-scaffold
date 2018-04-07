@@ -1,6 +1,6 @@
 module.exports = `{
   "name": "PROJECTNAME",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
