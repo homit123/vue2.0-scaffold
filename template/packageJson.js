@@ -1,6 +1,6 @@
 module.exports = `{
   "name": "PROJECTNAME",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@ module.exports = `{
     "element-ui": "^2.3.2",
     "es6-promise": "^4.2.4",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "happypack": "^4.0.1",
     "html-webpack-plugin": "^3.1.0",
@@ -33,6 +34,7 @@ module.exports = `{
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "through2": "^2.0.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
     "vue": "^2.5.16",
@@ -46,6 +48,5 @@ module.exports = `{
     "webpack-merge": "^4.1.2"
   }
 }
-
 
 `

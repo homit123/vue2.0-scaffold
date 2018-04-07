@@ -20,7 +20,7 @@ module.exports = {
         : "#cheap-module-eval-source-map",
     entry: isProd
         ? entry
-        : Object.assign(entry, {hot: ["webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"]}),
+        : Object.assign(entry, { hot: ["webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"] }),
 
     output: {
         path: dist,
@@ -43,24 +43,29 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\\.scss$/,
-                use:  ExtractTextPlugin.extract({
+                test: /\.(scss|css)$/,
+                use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                  })
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true //css压缩
+                        }
+                    }, 'sass-loader'],
+                })
             }, {
-                test: /\\.vue$/,
+                test: /\.vue$/,
                 loader: 'happypack/loader?id=vue'
             }, {
                 test: /\\.(eot|svg|ttf|woff|woff2)(\\?\\S*)?$/,
                 loader: "file-loader"
 
             },
-             {
-                test: /\\.(js)$/,
+            {
+                test: /\.(js)$/,
                 loader: "babel-loader",
                 exclude: /node_modules/
-            }, 
+            },
             {
                 test: /\\.(png|jpg|gif|svg)$/,
                 loader: "url-loader",
@@ -79,4 +84,5 @@ module.exports = {
             new ExtractTextPlugin('app.css')
         ]
 };
+
 `
