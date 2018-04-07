@@ -1,5 +1,9 @@
 module.exports = `<template>
-<div>home {{homeData}}</div>
+<div>
+    home 
+    {{homeData}}
+    <el-button type="primary">home</el-button>
+</div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';

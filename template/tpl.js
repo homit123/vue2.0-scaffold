@@ -26,4 +26,13 @@ module.exports = {
     'lodash.js': require('./lodash.js'),
     'appVue.js': require('./appVue.js'),
     'babelRc.js': require('./babelRc.js'),
+
+    'themeRed.js': require('./themeRed.js'),
+    'themeBlue.js': require('./themeBlue.js'),
+    'themeSrcRed.js': require('./themeSrcRed.js'),
+    'themeSrcBlue.js': require('./themeSrcBlue.js'),
+    'themeSrcvar.js': require('./themeSrcvar.js'),
+    'themeSrcPackage.js': require('./themeSrcPackage.js'),
+    'themeSrcReadme.js': require('./themeSrcReadme.js'),
+    'gulpfile.js': require('./gulpfile.js'),
 }

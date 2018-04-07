@@ -58,6 +58,8 @@ async function init_dir() {
         'router',
         'static',
         'store',
+        'theme',
+        'theme_src',
         'utils',
         'vendor'
     ];
@@ -68,6 +70,13 @@ async function init_dir() {
     await createDir('home', 'src/modules');
     // 构建vuex的结构目录
     await createDir('modules', 'src/store');
+     // 构建theme下主题文件
+    await createDir('custom-red', 'src/theme');
+    await createDir('custom-blue', 'src/theme');
+
+     // 构建theme_src下主题文件
+    await createDir('custom-red', 'src/theme_src');
+    await createDir('custom-blue', 'src/theme_src');
 }
 
 async function init_file() {
@@ -129,6 +138,18 @@ async function init_file() {
     await createFile("utils.js", tpl['utilStore.js'], "src/store");
     await createFile("index.js", tpl['moduleStore.js'], "src/store/modules");
     await createFile("home.js", tpl['homeStore.js'], "src/store/modules");
+    // 初始化主题文件
+    await createFile("index.css", tpl['themeBlue.js'], "src/theme/custom-blue");
+    await createFile("index.css", tpl['themeRed.js'], "src/theme/custom-red");
+    // 初始化主题文件原始样式
+    await createFile("index.css", tpl['themeSrcBlue.js'], "src/theme_src/custom-blue");
+    await createFile("index.css", tpl['themeSrcRed.js'], "src/theme_src/custom-red");
+    // 初始化主题源码目录packagejson 动态scss readme
+    await createFile("element-variables.scss", tpl['themeSrcvar.js'], "src/theme_src");
+    await createFile("package.json", tpl['themeSrcPackage.js'], "src/theme_src");
+    await createFile("readMe.md", tpl['themeSrcReadme.js'], "src/theme_src");
+    // 初始化gulp文件
+     await createFile("gulpfile.js", tpl['gulpfile.js'], "src");
 }
 module.exports = async function(project) {
     if(project) project_name = project;
