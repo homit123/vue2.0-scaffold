@@ -1,14 +1,12 @@
 module.exports = `<template>
 <div>
-    home 
-    {{homeData}}
-    <el-button type="primary">home</el-button>
+    {{MODULENAME}}
 </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
 export default {
-name: 'home-index',
+name: 'MODULENAME-index',
 data: function() {
     return {
 
@@ -16,14 +14,14 @@ data: function() {
 },
 computed: {
     ...mapGetters({
-        homeData: 'home/data'
+        MODULENAMEData: 'MODULENAME/data'
     })
 },
 mounted: function() {
 },
 methods: {
     ...mapActions({
-        homeAction: 'home/getByParams'
+        MODULENAMEAction: 'MODULENAME/getByParams'
     })
 },
 components: {

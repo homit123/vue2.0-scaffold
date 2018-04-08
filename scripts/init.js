@@ -16,10 +16,10 @@ const createDir = function(name, parent = '') {
     });
 }
 
-const createFile = function(name, fileSrc, parent = '') {
+const createFile = function(name, fileCtx, parent = '') {
     let dir = project_name == '.'?`./${parent}`:`./${project_name}/${parent}`
     return new Promise((resolve, reject) => {
-        fs.writeFile(path.join(pwd, dir, name), fileSrc, (err) => {
+        fs.writeFile(path.join(pwd, dir, name), fileCtx, (err) => {
             if (err && err.code !== 'EEXIST')
                 throw err;
             console.log(` ---> Create File\t${name} ---> success...`);
@@ -114,7 +114,7 @@ async function init_file() {
     await createFile("index.js", tpl['filters.js'], "src/filters");
 
     // 初始化home模型 
-    await createFile("index.vue", tpl['homePage.js'], "src/modules/home");
+    await createFile("index.vue", tpl['instancePage.js'].replace(/MODULENAME/g, "home"), "src/modules/home");
     // 初始化modules常规页面
     await createFile("fof.vue", tpl['fof.js'], "src/modules");
     await createFile("mainView.vue", tpl['mainView.js'], "src/modules");
@@ -128,7 +128,7 @@ async function init_file() {
     // 初始化home布局的portal模型
     
     // 初始化标准路由结构(home模块 案例)
-    await createFile("home.js", tpl['homeRouter.js'], "src/router");
+    await createFile("home.js", tpl['instanceRouter.js'].replace(/MODULENAME/g, "home"), "src/router");
     await createFile("index.js", tpl['indexRouter.js'], "src/router");
 
     // 初始化 utils常用工具方法
@@ -137,7 +137,7 @@ async function init_file() {
     await createFile("index.js", tpl['indexStore.js'], "src/store");
     await createFile("utils.js", tpl['utilStore.js'], "src/store");
     await createFile("index.js", tpl['moduleStore.js'], "src/store/modules");
-    await createFile("home.js", tpl['homeStore.js'], "src/store/modules");
+    await createFile("home.js", tpl['instanceStore.js'].replace(/MODULENAME/g, "home"), "src/store/modules");
     // 初始化主题文件
     await createFile("index.css", tpl['themeBlue.js'], "src/theme/custom-blue");
     await createFile("index.css", tpl['themeRed.js'], "src/theme/custom-red");

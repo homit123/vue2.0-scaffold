@@ -2,7 +2,7 @@ module.exports = `import Vue from 'vue'
 import Router from 'vue-router';
 // home模块
 import home from "./home";
-
+/*<路由注入>*/
 // 结构
 const MainView = resolve => require(['@/modules/mainView'], resolve)
 // 404
@@ -17,10 +17,10 @@ export default new Router({
     {
       path: '/',
       component: MainView,
-      
-     // name: "main",
+      name: "Main",
       children: [
         ...home,
+        /*<模块注入>*/
         // -----------------------------------404---------------------------------------
         {
           path: "*",

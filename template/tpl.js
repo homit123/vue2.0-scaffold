@@ -1,3 +1,4 @@
+let a = require('./instanceRouter.js');
 module.exports = {
     'package.json': require('./packageJson.js'),
     'server.js': require('./server.js'),
@@ -12,14 +13,14 @@ module.exports = {
     'moduleEvent.js': require('./moduleEvent.js'),
     'fetch.js': require('./fetch.js'),
     'filters.js': require('./filters.js'),
-    'homePage.js': require('./homePage.js'),
+    'instancePage.js': require('./instancePage.js'),
     'fof.js': require('./fof.js'),
     'mainView.js': require('./mainView.js'),
     'moduleView.js': require('./moduleView.js'),
     'transferView.js': require('./transferView.js'),
-    'homeRouter.js': require('./homeRouter.js'),
+    'instanceRouter.js': require('./instanceRouter.js'),
     'indexRouter.js': require('./indexRouter.js'),
-    'homeStore.js': require('./homeStore.js'),
+    'instanceStore.js': require('./instanceStore.js'),
     'moduleStore.js': require('./moduleStore.js'),
     'indexStore.js': require('./indexStore.js'),
     'utilStore.js': require('./utilStore.js'),

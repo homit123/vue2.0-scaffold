@@ -2,5 +2,7 @@
 ### 全局安装：npm i weiwei-cli -g
 ``` 用法 wei i projectName 初始化项目  ```
 ``` 运行 npm run dev 之前一定要 执行npm run dll```
+``` 支持模块初始化 wei add moduleName```
+----------
 [高模块扩展]
 [支持多主题切换]
