@@ -6,8 +6,7 @@ const fs = require("fs"),
       tpl = require("../template/tpl.js");
 
       
-const moduleStore = fs.readFileSync(path.join(pwd, './src/store/modules/index.js'),'utf-8');
-const indexRouter = fs.readFileSync(path.join(pwd, './src/router/index.js'),'utf-8');
+
 const createDir = function(name, dir) {
     return new Promise((resolve, reject) => {
         fs.mkdir(path.join(pwd, dir, name), (err) => {
@@ -51,7 +50,8 @@ module.exports = async function(moduleName) {
         console.log('need moduleName'.underline.red)
         return
     } 
-    console.log(moduleName);
+    const moduleStore = fs.readFileSync(path.join(pwd, './src/store/modules/index.js'),'utf-8');
+    const indexRouter = fs.readFileSync(path.join(pwd, './src/router/index.js'),'utf-8');
      // 构建${moduleName}目录，${moduleName}目录作为初始demo参考
      await createDir(moduleName, 'src/modules');
      // 初始化${moduleName}模型 
