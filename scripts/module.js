@@ -46,6 +46,7 @@ const setStoreTpl = function(tpl, moduleName) {
     return tpl;
 }
 module.exports = async function(moduleName) {
+    console.log(moduleName);
     if(!moduleName) {
         console.log('need moduleName'.underline.red)
         return

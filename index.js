@@ -8,7 +8,7 @@ program
   .action(scripts.init);
 
 // 初始化模块 +  路由 + 状态
-// program
-//   .command('add [muduleName]')
-//   .action(scripts.moduleScope);
+program
+  .command('add [muduleName]')
+  .action(scripts.moduleScope);
 program.parse(process.argv);
