@@ -36,4 +36,9 @@ module.exports = {
     'themeSrcPackage.js': require('./themeSrcPackage.js'),
     'themeSrcReadme.js': require('./themeSrcReadme.js'),
     'gulpfile.js': require('./gulpfile.js'),
+    
+    'table.js':  require('./table.js'),
+    'tableReadMe.js':  require('./tableReadMe.js'),
+    'tableVue.js':  require('./tableVue.js'),
+    'grid.js':  require('./grid.js'),
 }

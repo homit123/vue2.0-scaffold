@@ -25,7 +25,30 @@ const createFile = function (name, fileCtx, dir) {
         });
     });
 }
+const compsFun = {
+    async table() {
+        // 构建目录
+        await createDir('table', 'src/components');
+        // 创建grid 基类
+        await createFile("grid.js", tpl['grid.js'], "src/components");
+        // 创建table.js 基类
+        await createFile("table.js", tpl['table.js'], "src/components/table");
+        // 创建table.vue
+        await createFile("table.vue", tpl['tableVue.js'], "src/components/table");
+        // 创建readme
+        await createFile("readme.md", tpl['tableReadMe.js'], "src/components/table");
+    }
+}
+const comps = ['table']
+module.exports = async function (componentName) {
+    if(!componentName) {
+        console.log('must componentName'.red);
+        return
+    }
+    if(comps.indexOf(componentName) == -1) {
+        console.log(`no ${componentName} component`.red);
+        return
+    }
 
-module.exports = async function (cName) {
-
+    compsFun[componentName]()
 }

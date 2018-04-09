@@ -7,7 +7,6 @@ module.exports = [
     {
         path: "MODULENAME",
         component: mdouleView,
-        name: "MODULENAME",
         children: [
             {
                 path: "/",
