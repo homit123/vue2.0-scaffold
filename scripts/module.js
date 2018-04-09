@@ -56,7 +56,7 @@ module.exports = async function(moduleName) {
      // 构建${moduleName}目录，${moduleName}目录作为初始demo参考
      await createDir(moduleName, 'src/modules');
      // 初始化${moduleName}模型 
-     await createFile(`${moduleName}.vue`, tpl['instancePage.js'].replace(/MODULENAME/g, moduleName), `src/modules/${moduleName}`);
+     await createFile(`index.vue`, tpl['instancePage.js'].replace(/MODULENAME/g, moduleName), `src/modules/${moduleName}`);
      
      // 初始化标准路由结构(${moduleName}模块 案例)
      await createFile(`${moduleName}.js`, tpl['instanceRouter.js'].replace(/MODULENAME/g, moduleName), "src/router");

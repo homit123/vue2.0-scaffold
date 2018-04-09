@@ -11,4 +11,10 @@ program
 program
   .command('add [muduleName]')
   .action(scripts.moduleScope);
+
+// 功能组件
+program
+  .command('use [componentName]')
+  .action(scripts.componentScope);
+
 program.parse(process.argv);
