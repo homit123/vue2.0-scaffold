@@ -11,7 +11,7 @@ const createDir = function(name, parent = '') {
         fs.mkdir(path.join(pwd, dir, name), (err) => {
             if (err && err.code !== 'EEXIST')
                 throw err;
-            console.log(` ---> Create Directory\t${name} ---> success...`);
+            console.log(` ---> Create Directory\t${name} ---> success...`.green);
             resolve();
         });
     });
@@ -23,7 +23,7 @@ const createFile = function(name, fileCtx, parent = '') {
         fs.writeFile(path.join(pwd, dir, name), fileCtx, (err) => {
             if (err && err.code !== 'EEXIST')
                 throw err;
-            console.log(` ---> Create File\t${name} ---> success...`);
+            console.log(` ---> Create File\t${name} ---> success...`.green);
             resolve();
         });
     });
