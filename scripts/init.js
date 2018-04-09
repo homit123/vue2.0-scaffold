@@ -150,7 +150,7 @@ async function init_file() {
     await createFile("package.json", tpl['themeSrcPackage.js'], "src/theme_src");
     await createFile("readMe.md", tpl['themeSrcReadme.js'], "src/theme_src");
     // 初始化gulp文件
-     await createFile("gulpfile.js", tpl['gulpfile.js'], "src");
+     await createFile("gulpfile.js", tpl['gulpfile.js'], "./");
 }
 module.exports = async function(project) {
     if(project) project_name = project;
