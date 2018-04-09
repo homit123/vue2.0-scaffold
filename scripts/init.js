@@ -1,6 +1,7 @@
 const fs = require("fs"),
       path = require("path"),
-      tpl = require("../template/tpl.js");
+      tpl = require("../template/tpl.js"),
+      colors = require('colors'),
       pwd = process.cwd();
 
 var project_name = "vue-scaffod";

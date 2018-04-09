@@ -46,9 +46,9 @@ const setStoreTpl = function(tpl, moduleName) {
     return tpl;
 }
 module.exports = async function(moduleName) {
-    console.log(moduleName);
+    console.log('-----------> run in project dir'.yellow);
     if(!moduleName) {
-        console.log('need moduleName'.underline.red)
+        console.log('-----------> need moduleName'.underline.red);
         return
     } 
     const moduleStore = fs.readFileSync(path.join(pwd, './src/store/modules/index.js'),'utf-8');
