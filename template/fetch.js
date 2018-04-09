@@ -5,9 +5,6 @@ module.exports = `const http = {
             .then(function (response) {
                 return response
             })
-            .catch((e) => {
-                return Promise.reject();
-            })
     },
     get: function (action, params) {
         return instanceAxios
@@ -22,9 +19,6 @@ module.exports = `const http = {
             .then(function (response) {
                 return response
             })
-            .catch(() => {
-                return Promise.reject();
-            })
     },
     delete: function (action, params) {
         return instanceAxios
@@ -32,11 +26,9 @@ module.exports = `const http = {
             .then(function (response) {
                 return response
             })
-            .catch(() => {
-                return Promise.reject();
-            })
     }
 }
 
 export default http
+
 `

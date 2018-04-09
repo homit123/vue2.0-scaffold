@@ -1,6 +1,6 @@
 module.exports = `<template>
 <div>
-    {{MODULENAME}}
+    {{MODULENAMEData}}
 </div>
 </template>
 <script>

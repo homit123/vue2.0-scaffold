@@ -14,6 +14,8 @@ const Store = (action, obj = {}, apiName = '') => {
     const store = {
         namespaced: true,
         state: {
+            // 异步loading控制
+            loading: false,
             // 数据列表
             list: [],
             // 数据对象
@@ -23,11 +25,8 @@ const Store = (action, obj = {}, apiName = '') => {
         },
         getters: {
             // 获取状态数据
-            list(state, getters) {
-                return state.list
-            },
             data(state, getters) {
-                return state.data
+                return state
             }
         },
         mutations: {
@@ -39,6 +38,7 @@ const Store = (action, obj = {}, apiName = '') => {
                 else {
                     state.data = res.data
                 }
+                state.loading = false;
             },
              // 突变列表
              setList(state, res) {
@@ -49,11 +49,17 @@ const Store = (action, obj = {}, apiName = '') => {
                     state.list = res.docs;
                     state.count = res.count;
                 }
+                state.loading = false;
+            },
+            // 开启loading
+            changeLoading(state) {
+                state.loading = true;
             }
         },
         actions: {
             // 获取单条数据
             getByParams({ state, commit }, params = {}) {
+                commit('changeLoading');
                 return fetch.get(api, params).then(res => {
                     commit('setOne', res)
                     return res
@@ -61,6 +67,7 @@ const Store = (action, obj = {}, apiName = '') => {
             },
              // 获取单条数据
              getById({ state, commit }, id) {
+                commit('changeLoading');
                 return fetch.get(\`\${api}/\${id}\`, {}).then(res => {
                     commit('setOne', res)
                     return res
@@ -69,6 +76,7 @@ const Store = (action, obj = {}, apiName = '') => {
 
             // 获取列表数据
             getList({ state, commit }, params = {}) {
+                commit('changeLoading');
                 return fetch.get(api, params).then(res => {
                     commit('setList', res)
                     return res
@@ -77,6 +85,7 @@ const Store = (action, obj = {}, apiName = '') => {
 
             // 新增数据
             post({ state, commit }, params = {}) {
+                commit('changeLoading');
                 return fetch.post(api, params).then(res => {
                     return res;
                 })
@@ -84,6 +93,7 @@ const Store = (action, obj = {}, apiName = '') => {
 
              // 修改数据
             put({ state, commit }, params = {}) {
+                commit('changeLoading');
                 return fetch.put(api, params).then(res => {
                     return res;
                 })
@@ -91,6 +101,7 @@ const Store = (action, obj = {}, apiName = '') => {
 
             // 删除数据
             delete({ state, commit }, id) {
+                commit('changeLoading');
                 return fetch.delete(\`\${api}/\${id}\`, {}).then(res => {
                     return res;
                 })
@@ -104,4 +115,5 @@ const Store = (action, obj = {}, apiName = '') => {
 }
 
 export default Store
+
 `
