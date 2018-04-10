@@ -10,7 +10,7 @@ const table = {
             type: Array,
             required: true
         },
-        // 表格初始高度
+        // 表格高度
         height: {
             default: 300,
             type:Number

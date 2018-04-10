@@ -41,4 +41,7 @@ module.exports = {
     'tableReadMe.js':  require('./tableReadMe.js'),
     'tableVue.js':  require('./tableVue.js'),
     'grid.js':  require('./grid.js'),
+
+    'list.js':  require('./list.js'),
+    'listVue.js':  require('./listVue.js'),
 }

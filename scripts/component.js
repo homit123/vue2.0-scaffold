@@ -37,6 +37,18 @@ const compsFun = {
         await createFile("table.vue", tpl['tableVue.js'], "src/components/table");
         // 创建readme
         await createFile("readme.md", tpl['tableReadMe.js'], "src/components/table");
+    },
+    async list() {
+        // 构建目录
+        await createDir('list', 'src/components');
+        // 创建 list.js 基类
+        await createFile("list.js", tpl['list.js'], "src/components/list");
+        // 创建list.vue
+        await createFile("list.vue", tpl['listVue.js'], "src/components/list");
+    },
+    async search() {
+        // 构建目录
+        await createDir('search', 'src/components');
     }
 }
 const comps = ['table']

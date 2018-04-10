@@ -63,7 +63,7 @@ module.exports = `<template>
         </div>
         <slot></slot>
     </div>
-    <div class="table-pagination">
+    <div class="table-pagination" v-if="pagination && counts > pageInfo.size)">
         <el-pagination
             @current-change="pageChange" 
             :current-page="pageInfo.page" 
