@@ -51,7 +51,7 @@ const compsFun = {
         await createDir('search', 'src/components');
     }
 }
-const comps = ['table']
+const comps = ['table', 'list'];
 module.exports = async function (componentName) {
     if(!componentName) {
         console.log('must componentName'.red);
