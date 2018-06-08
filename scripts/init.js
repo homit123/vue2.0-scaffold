@@ -114,7 +114,7 @@ async function init_file() {
     await createFile("mainView.vue", tpl['mainView.js'], "src/modules");
     await createFile("moduleView.vue", tpl['moduleView.js'], "src/modules");
     await createFile("transferView.vue", tpl['transferView.js'], "src/modules");
-    await createFile("basePage.vue", tpl['basePage.js'], "src/modules");
+    await createFile("basePage.js", tpl['basePage.js'], "src/modules");
     // 初始化 mixins 模型
     await createFile("collapseMenus.vue", tpl['portalCollapse.js'], "src/portal");
     await createFile("expandMenus.vue", tpl['portalExpand.js'], "src/portal");
