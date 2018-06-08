@@ -46,64 +46,93 @@ const Store = (action, obj = {}, apiName = '') => {
 
                 }
                 else {
-                    state.list = res.docs;
-                    state.count = res.count;
+                    state.list = res.data.docs;
+                    state.count = res.data.count;
                 }
                 state.loading = false;
             },
             // 开启loading
-            changeLoading(state) {
-                state.loading = true;
+            changeLoading(state, loading) {
+                state.loading = loading;
             }
         },
         actions: {
             // 获取单条数据
             getByParams({ state, commit }, params = {}) {
-                commit('changeLoading');
+                commit('changeLoading', true);
                 return fetch.get(api, params).then(res => {
                     commit('setOne', res)
                     return res
+                }).finally(one => {
+                    commit('changeLoading', false);
                 })
             },
              // 获取单条数据
              getById({ state, commit }, id) {
-                commit('changeLoading');
+                commit('changeLoading', true);
                 return fetch.get(\`\${api}/\${id}\`, {}).then(res => {
                     commit('setOne', res)
                     return res
+                }).finally(one => {
+                    commit('changeLoading', false);
                 })
             },
 
             // 获取列表数据
             getList({ state, commit }, params = {}) {
-                commit('changeLoading');
+                commit('changeLoading', true);
+                if(!params.pageSize) {
+                    Object.assign(params, {pageSize: 20});
+                }
+                if(!params.pageNo) {
+                    Object.assign(params, {pageNo: 1});
+                }
                 return fetch.get(api, params).then(res => {
                     commit('setList', res)
                     return res
+                }).finally(one => {
+                    // debugger
+                    commit('changeLoading', false);
                 })
             },
 
             // 新增数据
             post({ state, commit }, params = {}) {
-                commit('changeLoading');
+                commit('changeLoading', true);
                 return fetch.post(api, params).then(res => {
                     return res;
+                }).finally(one => {
+                    commit('changeLoading', false);
                 })
             },
 
              // 修改数据
             put({ state, commit }, params = {}) {
-                commit('changeLoading');
+                commit('changeLoading', true);
                 return fetch.put(api, params).then(res => {
                     return res;
+                }).finally(one => {
+                    commit('changeLoading', false);
                 })
             },
 
             // 删除数据
             delete({ state, commit }, id) {
-                commit('changeLoading');
+                commit('changeLoading', true);
                 return fetch.delete(\`\${api}/\${id}\`, {}).then(res => {
                     return res;
+                }).finally(one => {
+                    commit('changeLoading', false);
+                })
+            },
+
+             // 批量删除数据
+             deleteBatch({ state, commit }, ids) {
+                commit('changeLoading', true);
+                return fetch.delete(api, ids).then(res => {
+                    return res;
+                }).finally(one => {
+                    commit('changeLoading', false);
                 })
             }
         }
@@ -115,5 +144,4 @@ const Store = (action, obj = {}, apiName = '') => {
 }
 
 export default Store
-
 `

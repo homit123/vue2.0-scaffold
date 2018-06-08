@@ -3,7 +3,7 @@ module.exports = `<template>
     <div>
         <div class="table-e">
             <el-table 
-                :height="height" 
+                :max-height='maxHeight'
                 :key="name" 
                 :border="border" 
                 :highlight-current-row="highlight"
@@ -36,12 +36,16 @@ module.exports = `<template>
                            
                         </div>
                         <div v-else-if="one.type == 'comps'">
-                                <!--处理点击事件-->
-                                <self-comps :slot-render="\$scopedSlots.default" :row="scope.row" :index="scope.\$index" :tpl-data="one"></self-comps>
+                            <!--处理点击事件-->
+                            <self-comps :slot-render="$scopedSlots.default" :row="one.labelName?scope.row[one.labelName]:scope.row" :index="scope.$index" :tpl-data="one"></self-comps>
                         </div>
                         <!--txt形式-->
                         <div v-else-if="one.type == 'txt'">
-                                {{scope.row[one.labelName]}}
+                                {{adapterData(one, scope.row)}}
+                        </div>
+                        <!--简单html形式-->
+                        <div v-else-if="one.type == 'html'">
+                            <div v-html='adapterData(one, scope.row)'></div>
                         </div>
                         <!--price形式-->
                         <div v-else-if="one.type == 'price'">
@@ -50,6 +54,10 @@ module.exports = `<template>
                         <!--date形式-->
                         <div v-else-if="one.type == 'date'">
                                 {{scope.row[one.labelName] | dateFormate(one.formate || 'yyyy-mm-dd')}}
+                        </div>
+                        <!--txt形式-->
+                        <div v-else>
+                                {{adapterData(one, scope.row)}}
                         </div>
                     </template>
                 </el-table-column>
@@ -63,11 +71,11 @@ module.exports = `<template>
         </div>
         <slot></slot>
     </div>
-    <div class="table-pagination" v-if="pagination && counts > pageInfo.size)">
+    <div class="table-pagination" style='margin-top: 20px;' v-if="pagination && (counts > pageInfo.pageSize)">
         <el-pagination
             @current-change="pageChange" 
-            :current-page="pageInfo.page" 
-            :page-size="pageInfo.size" 
+            :current-page="pageInfo.pageNo*1" 
+            :page-size="pageInfo.pageSize" 
             layout="total,  prev, pager, next, jumper"
             :total="counts">
         </el-pagination>
@@ -81,54 +89,62 @@ import baseTable from "./table";
 import Vue from "vue";
 
 const selfComps = Vue.extend({
-name: "selfComps",
-props: {
-    // 自定义插槽
-    slotRender: {
-        default: function () { return function () { } },
-        type: Function
+    name: "selfComps",
+    props: {
+        // 自定义插槽
+        slotRender: {
+            default: function () { return function () { } },
+            type: Function
+        },
+        // 单行数据对象
+        row: {
+            default: function () { return {} },
+            type: Object
+        },
+        // 第几行
+        index: {
+            default: 0,
+            type: Number
+        },
+        // 指定模板所属名
+        tplData: {
+            default: function () { return {} },
+            type: Object
+        }
     },
-    // 单行数据对象
-    row: {
-        default: function () { return {} },
-        type: Object
+    data: function () {
+        return {
+        }
     },
-    // 第几行
-    index: {
-        default: 0,
-        type: Number
+    render: function (h) {
+        return h('div', this.slotRender({ tplName: this.tplData.tplName, row: this.row, index: this.index }));
     },
-    // 指定模板所属名
-    tplData: {
-        default: function () { return {} },
-        type: Object
+    mounted: function () {
     }
-},
-data: function () {
-    return {
-    }
-},
-render: function (h) {
-    return h('div', this.slotRender({ tplName: this.tplData.tplName, row: this.row, index: this.index }));
-},
-mounted: function () {
-}
 })
 export default {
-mixins: [baseTable],
-name: 'table-e',
-data: function () {
-    return {
+    mixins: [baseTable],
+    name: 'table-e',
+    data: function () {
+        return {
+        }
+    },
+    methods: {
+        adapterData: function(h, data) {
+            if(!data) return '';
+            let v =  data[h.labelName];
+            if(h.adapter && h.adapter.constructor == Function) {
+                v = h.adapter(data);
+            }
+            return v
+        },
+    },
+    computed: {
+    },
+    mounted: function () {
+    },
+    components: {
+        selfComps
     }
-},
-methods: {
-},
-computed: {
-},
-mounted: function () {
-},
-components: {
-    selfComps
-}
 };
 </script>`

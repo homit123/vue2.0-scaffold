@@ -9,7 +9,7 @@ module.exports = [
         component: mdouleView,
         children: [
             {
-                path: "/",
+                path: "index",
                 name: "MODULENAME",
                 component: MODULENAMEView,
             }

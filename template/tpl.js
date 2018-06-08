@@ -7,6 +7,8 @@ module.exports = {
     'webpack.dll.conf.js': require('./webpackDll.js'),
     'app.js':  require('./app.js'),
     'app.scss':  require('./appScss.js'),
+    'app.css':  require('./appScss.css'),
+    'build.scss':  require('./build.js'),
     'entry-client.js':  require('./entryClient.js'),
     'index.template.html':  require('./indexTplHtml.js'),
     'config.js': require('./config.js'),
@@ -28,15 +30,6 @@ module.exports = {
     'appVue.js': require('./appVue.js'),
     'babelRc.js': require('./babelRc.js'),
 
-    'themeRed.js': require('./themeRed.js'),
-    'themeBlue.js': require('./themeBlue.js'),
-    'themeSrcRed.js': require('./themeSrcRed.js'),
-    'themeSrcBlue.js': require('./themeSrcBlue.js'),
-    'themeSrcvar.js': require('./themeSrcvar.js'),
-    'themeSrcPackage.js': require('./themeSrcPackage.js'),
-    'themeSrcReadme.js': require('./themeSrcReadme.js'),
-    'gulpfile.js': require('./gulpfile.js'),
-    
     'table.js':  require('./table.js'),
     'tableReadMe.js':  require('./tableReadMe.js'),
     'tableVue.js':  require('./tableVue.js'),
@@ -44,4 +37,18 @@ module.exports = {
 
     'list.js':  require('./list.js'),
     'listVue.js':  require('./listVue.js'),
+
+    'searchVue.js':  require('./searchVue.js'),
+    'searchSpriteVue.js':  require('./searchSpriteVue.js'),
+
+    'basePage.js':  require('./basePage.js'),
+
+    'frameCss.js':  require('./frameCss.js'),
+    'frameVue.js':  require('./frameVue.js'),
+    'portalCollapse.js':  require('./portalCollapse.js'),
+    'portalCss.js':  require('./portalCss.js'),
+    'portalExpand.js':  require('./portalExpand.js'),
+    'portalHeader.js':  require('./portalHeader.js'),
+    'portalMenu.js':  require('./portalMenu.js'),
+    'menusDemo.js':  require('./menusDemo.js')
 }

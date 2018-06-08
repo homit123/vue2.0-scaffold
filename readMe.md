@@ -13,9 +13,6 @@
 ``` 支持模块初始化 wei add moduleName```
 
 ``` 支持功能组件初始化 wei use componentName ```
-* 目前支持的功能组件有 ['table', 'list']
+* 目前支持的功能组件有 ['table', 'list', 'search']
 
 [高模块扩展]
-
-
-[支持多主题切换]

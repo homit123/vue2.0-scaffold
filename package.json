@@ -1,6 +1,6 @@
 {
   "name": "weiwei-cli",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "vue2.0 web project code scaffold",
   "main": "index.js",
   "scripts": {

@@ -11,9 +11,14 @@ const table = {
             required: true
         },
         // 表格高度
-        height: {
-            default: 300,
-            type:Number
+        // height: {
+        //     default: 300,
+        //     type:Number
+        // },
+        // 流体高度
+        maxHeight: {
+            default: '-1',
+            type: String
         },
         // 表格边框
         border: {
@@ -67,21 +72,21 @@ const table = {
     methods: {
         // 单项被选择
         selectItem(selection, row) {
-            this.\$emit("selectChange", row, selection);
+            this.$emit("selectChange", row, selection);
         },
         // 全选
         selectAll(selection) {
-            this.\$emit("selectChange", null, selection);
+            this.$emit("selectChange", null, selection);
         },
         // 复选变化
         selectionChange(selection) {
-            this.\$emit("selectChange", null, selection);
+            this.$emit("selectChange", null, selection);
         },
         // 单元格点击
         cellClick(row, column, cell, event) {
         },
         // 表格头默认形式
-        renderHeader(h, { column, \$index }) {
+        renderHeader(h, { column, $index }) {
             return (
                 <span>{column.label}</span>
             )
@@ -92,4 +97,5 @@ const table = {
 };
 
 export default table;
+
 `
