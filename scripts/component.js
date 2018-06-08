@@ -52,9 +52,17 @@ const compsFun = {
         // search.vue
         await createFile("search.vue", tpl['searchVue.js'], "src/components/search");
         await createFile("searchSprite.vue", tpl['searchSpriteVue.js'], "src/components/search");
+    },
+
+    async panel() {
+        // 构建目录
+        await createDir('panel', 'src/components');
+        // panel.vue
+        await createFile("panel.vue", tpl['panelVue.js'], "src/components/panel");
+        await createFile("panel.css", tpl['panelCss.js'], "src/components/panel");
     }
 }
-const comps = ['table', 'list', 'search'];
+const comps = ['table', 'list', 'search', 'panel'];
 module.exports = async function (componentName) {
     if(!componentName) {
         console.log('must componentName'.red);

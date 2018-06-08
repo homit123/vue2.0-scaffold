@@ -14,11 +14,12 @@ module.exports = `{
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "babel-plugin-jsx-v-model": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
@@ -38,6 +39,7 @@ module.exports = `{
     "koa-webpack-hot-middleware": "^1.0.3",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.7",
+    "storejs": "^1.0.16",
     "style-loader": "^0.20.3",
     "through2": "^2.0.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
@@ -47,10 +49,15 @@ module.exports = `{
     "vue-router": "^3.0.1",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
+    "vuedraggable": "^2.16.0",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0",
     "webpack": "^3.5.5",
     "webpack-merge": "^4.1.2"
+  },
+  "devDependencies": {
+    "babel-plugin-jsx-v-model": "^2.0.3",
+    "babel-plugin-transform-vue-jsx": "^3.7.0"
   }
 }
 

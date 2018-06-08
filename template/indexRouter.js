@@ -13,7 +13,7 @@ const Fview = resolve => require(['@/modules/fof'], resolve)
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'hash',
   scrollBehavior: () => ({y: 0}),
   routes: [

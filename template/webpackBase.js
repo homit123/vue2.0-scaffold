@@ -46,7 +46,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\\.css$/,
                 loaders: ExtractApp.extract({
                     fallback: "style-loader",
                     use: {
@@ -60,7 +60,7 @@ module.exports = {
                     }
                 })
             }, {
-                test: /.scss$/,
+                test: /\\.scss$/,
                 use: ExtractUi.extract({
                     fallback: 'style-loader',
                     use: [
@@ -78,18 +78,18 @@ module.exports = {
                     ]
                 })
             }, {
-                test: /.vue$/,
+                test: /\\.vue$/,
                 loader: 'vue-loader',
             }, {
-                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                test: /\\.(eot|svg|ttf|woff|woff2)(\\?\\S*)?$/,
                 loader: "file-loader"
 
             }, {
-                test: /.(js)$/,
+                test: /\\.(js)$/,
                 loader: "babel-loader",
                 exclude: /node_modules/
             }, {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\\.(png|jpg|gif|svg)$/,
                 loader: "url-loader",
                 options: {
                     limit: 10000,

@@ -90,13 +90,14 @@ async function init_file() {
     // 初始化 src下app.js   app.scss, App.vue. entry-client.js  index.template.html
     await createFile("app.js", tpl['app.js'], "src");
     await createFile("app.scss", tpl['app.scss'], "src");
+    await createFile("app.css", tpl['app.css'], "src");
     await createFile("app.vue", tpl['appVue.js'], "src");
     await createFile("entry-client.js", tpl['entry-client.js'], "src");
     await createFile("index.template.html", tpl['index.template.html'], "src");
     
     // 初始化配置文件
     await createFile("config.js", tpl['config.js'], "src/config");
-
+    await createFile("components.js", tpl['components.js'], "src/config");
     // 初始化事件总线模型
     await createFile("moduleEvent.vue", tpl['moduleEvent.js'], "src/event");
 
@@ -113,7 +114,7 @@ async function init_file() {
     await createFile("mainView.vue", tpl['mainView.js'], "src/modules");
     await createFile("moduleView.vue", tpl['moduleView.js'], "src/modules");
     await createFile("transferView.vue", tpl['transferView.js'], "src/modules");
-
+    await createFile("basePage.vue", tpl['basePage.js'], "src/modules");
     // 初始化 mixins 模型
     await createFile("collapseMenus.vue", tpl['portalCollapse.js'], "src/portal");
     await createFile("expandMenus.vue", tpl['portalExpand.js'], "src/portal");

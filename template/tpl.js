@@ -50,5 +50,9 @@ module.exports = {
     'portalExpand.js':  require('./portalExpand.js'),
     'portalHeader.js':  require('./portalHeader.js'),
     'portalMenu.js':  require('./portalMenu.js'),
-    'menusDemo.js':  require('./menusDemo.js')
+    'menusDemo.js':  require('./menusDemo.js'),
+
+    'components.js':  require('./glComps.js'),
+    'panelVue.js':  require('./panelVue.js'),
+    'panelCss.js':  require('./panelCss.js')
 }

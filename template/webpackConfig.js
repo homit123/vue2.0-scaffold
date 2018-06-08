@@ -27,7 +27,7 @@ const config = merge(base, {
             // 版本号迭代 手动控制
             version: "1.0"
         }),
-        new webpack.ContextReplacementPlugin(/\.\/locale$/, 'empty-module', false, /js$/),
+        new webpack.ContextReplacementPlugin(/\\.\\/locale$/, 'empty-module', false, /js$/),
     ]
 })
 module.exports = config
